@@ -4,7 +4,7 @@ import styled from "styled-components";
 export const Input = ({ name, register, error, ...props }) => {
   return (
     <Container>
-      <StyledInput {...register(name)} {...props} />
+      <StyledInput {...register(name)} error={error} {...props} />
       {error && <ErrorMessage>{error}</ErrorMessage>}
     </Container>
   );
@@ -22,7 +22,7 @@ const StyledInput = styled.input`
   background: #f7f8fd;
   border-radius: 5px;
   transition: all 0.3s ease-in-out;
-  border: none;
+  border: ${({ error }) => (error ? "1px solid #d73737" : "none")};
   padding: 0 24px;
   font-weight: 400;
   font-size: 1.5rem;
