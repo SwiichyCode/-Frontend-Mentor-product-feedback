@@ -1,9 +1,20 @@
 import styled from "styled-components";
 import React from "react";
 
-export const TextArea = ({ name, register, ...props }) => {
-  return <StyledTextArea {...register(name)} {...props} />;
+export const TextArea = ({ name, register, error, ...props }) => {
+  return (
+    <Container>
+      <StyledTextArea {...register(name)} {...props} />
+      {error && <ErrorMessage>{error}</ErrorMessage>}
+    </Container>
+  );
 };
+
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+`;
 
 const StyledTextArea = styled.textarea`
   width: 100%;
@@ -26,4 +37,11 @@ const StyledTextArea = styled.textarea`
   &::placeholder {
     color: #647196;
   }
+`;
+
+const ErrorMessage = styled.p`
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  color: #d73737;
 `;

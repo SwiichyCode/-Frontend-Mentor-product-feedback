@@ -8,10 +8,12 @@ import iconCheck from "../../../assets/shared/icon-check.svg";
 
 export const Select = ({
   label,
+  name,
   options,
   setOptions,
   currentOption,
   setCurrentOption,
+  register,
 }) => {
   const [open, isOpen] = useToggle(false);
   const ref = useDetectClickOutside({ onTriggered: () => isOpen(false) });
@@ -44,6 +46,8 @@ export const Select = ({
       <CustomSelect
         className="current-select"
         type="button"
+        value={currentOption}
+        {...register(name)}
         onClick={(e) => {
           e.stopPropagation();
           isOpen((prev) => !prev);

@@ -1,9 +1,20 @@
 import React from "react";
 import styled from "styled-components";
 
-export const Input = ({ name, register, ...props }) => {
-  return <StyledInput {...register(name)} {...props} />;
+export const Input = ({ name, register, error, ...props }) => {
+  return (
+    <Container>
+      <StyledInput {...register(name)} {...props} />
+      {error && <ErrorMessage>{error}</ErrorMessage>}
+    </Container>
+  );
 };
+
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+`;
 
 const StyledInput = styled.input`
   width: 100%;
@@ -21,4 +32,11 @@ const StyledInput = styled.input`
   &:focus {
     outline: 1px solid #4661e6;
   }
+`;
+
+const ErrorMessage = styled.p`
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  color: #d73737;
 `;

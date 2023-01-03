@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@hookform/resolvers": "^2.9.10",
     "preact": "^10.11.3",
     "prop-types": "^15.8.1",
     "react-detect-click-outside": "^1.1.7",
@@ -16,6 +17,7 @@
     "react-router-dom": "^6.6.1",
     "styled-components": "^5.3.6",
     "uuid": "^9.0.0",
+    "yup": "^0.32.11",
     "zustand": "^4.2.0"
   },
   "devDependencies": {

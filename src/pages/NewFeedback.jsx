@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { useForm } from "react-hook-form";
+import * as yup from "yup";
 import { v4 as uuidv4 } from "uuid";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { useFeedbackStore } from "../stores/feedbackStore";
 import { BackLink } from "../components/common/BackLink";
 import { ContainerLayout } from "../components/layout/ContainerLayout";
 import { FormLayout } from "../components/layout/FormLayout";
@@ -10,7 +13,6 @@ import { InputGroup } from "../components/common/InputGroup";
 import { Button } from "../components/common/Button";
 import { TextArea } from "../components/common/Textarea";
 import { Select } from "../components/common/Select";
-import { useFeedbackStore } from "../stores/feedbackStore";
 
 const initialOptions = [
   { name: "Feature", selected: false },
@@ -20,24 +22,34 @@ const initialOptions = [
   { name: "Bug", selected: false },
 ];
 
-export const NewFeedback = () => {
-  const feedbacks = useFeedbackStore((state) => state.feedbacks);
-  const addFeedback = useFeedbackStore((state) => state.addFeedback);
-  const [options, setOptions] = useState(initialOptions);
-  const [currentOption, setCurrentOption] = useState("Select Status");
-  const { register, handleSubmit, errors } = useForm();
+const schema = yup.object().shape({
+  title: yup.string().required("Title is required"),
+  detail: yup.string().required("Description is required"),
+});
 
-  const onSubmit = handleSubmit(({ title }) => {
+export const NewFeedback = () => {
+  const addFeedback = useFeedbackStore((state) => state.addFeedback);
+  const [status, setStatus] = useState(initialOptions);
+  const [currentOption, setCurrentOption] = useState(initialOptions[0].name);
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    resolver: yupResolver(schema),
+  });
+
+  const onSubmit = handleSubmit(({ title, detail }) => {
     const newFeedback = {
       id: uuidv4(),
       title: title,
+      status: currentOption,
+      detail: detail,
     };
 
     // addFeedback(newFeedback);
     console.log(newFeedback);
   });
-
-  // console.log(currentOption);
 
   return (
     <ContainerLayout>
@@ -53,6 +65,7 @@ export const NewFeedback = () => {
               <Input
                 name={"title"}
                 register={register}
+                error={errors.title?.message}
                 placeholder="e.g. Please add a dark theme option..."
               />
             </InputGroup>
@@ -60,10 +73,10 @@ export const NewFeedback = () => {
             {/* Options */}
             <InputGroup title="Update Status" subtitle="Change feedback state">
               <Select
-                // feedbackOptions={feedbackOptions}
-                // setFeedbackOptions={setFeedbackOptions}
-                options={options}
-                setOptions={setOptions}
+                name={"status"}
+                register={register}
+                options={status}
+                setOptions={setStatus}
                 currentOption={currentOption}
                 setCurrentOption={setCurrentOption}
               />
@@ -78,6 +91,7 @@ export const NewFeedback = () => {
                 name={"detail"}
                 register={register}
                 placeholder="e.g. It would help people with light sensitivities and who prefer dark mode..."
+                error={errors.detail?.message}
               />
             </InputGroup>
             <ButtonGroup>
