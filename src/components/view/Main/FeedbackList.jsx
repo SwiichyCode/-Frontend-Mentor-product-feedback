@@ -1,14 +1,25 @@
 import React from "react";
 import styled from "styled-components";
-import illustrationEmpty from "../../../assets/suggestions/illustration-empty.svg";
+import { useFeedbackStore } from "../../../stores/feedbackStore";
+import { FeedbackCard } from "./FeedbackCard";
 import { Button } from "../../common/Button";
-export const MainBoard = () => {
-  const currentValue = [];
+import illustrationEmpty from "../../../assets/suggestions/illustration-empty.svg";
+
+export const FeedbackList = () => {
+  const feedbacks = useFeedbackStore((state) => state.feedbacks);
+  const { productRequests } = feedbacks;
 
   return (
     <Container>
-      {currentValue.length > 0 ? (
-        <ListBoard></ListBoard>
+      {productRequests.length > 0 ? (
+        <ListBoard>
+          {productRequests.map((productRequest) => (
+            <FeedbackCard
+              productRequest={productRequest}
+              key={productRequest.id}
+            />
+          ))}
+        </ListBoard>
       ) : (
         <EmptyBoard>
           <img src={illustrationEmpty} alt="illustration" />
@@ -27,10 +38,13 @@ export const MainBoard = () => {
 const Container = styled.div`
   width: 100%;
   height: auto;
-  background: #fff;
 `;
 
-const ListBoard = styled.ul``;
+const ListBoard = styled.ul`
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+`;
 
 const EmptyBoard = styled.div`
   width: 100%;

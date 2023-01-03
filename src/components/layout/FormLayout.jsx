@@ -24,7 +24,7 @@ FormLayout.propTypes = {
 const Container = styled.div`
   position: relative;
   width: 100%;
-  height: 657px;
+  height: min-content;
   background: #fff;
   border-radius: 10px;
   padding: 52px 42px 40px 42px;

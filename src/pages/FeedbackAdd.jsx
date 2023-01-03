@@ -27,7 +27,7 @@ const schema = yup.object().shape({
   detail: yup.string().required("Description is required"),
 });
 
-export const NewFeedback = () => {
+export const FeedbackAdd = () => {
   const addFeedback = useFeedbackStore((state) => state.addFeedback);
   const [status, setStatus] = useState(initialOptions);
   const [currentOption, setCurrentOption] = useState(initialOptions[0].name);

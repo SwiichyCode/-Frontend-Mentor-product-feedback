@@ -7,7 +7,7 @@ export const ContainerLayout = ({ children }) => {
 
 const Container = styled.div`
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   background: #f7f8fd;

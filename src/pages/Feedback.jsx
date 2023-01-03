@@ -3,11 +3,29 @@ import styled from "styled-components";
 import { AsideFilter } from "../components/view/Aside/AsideFilter";
 import { AsideHeader } from "../components/view/Aside/AsideHeader";
 import { AsideRoadmap } from "../components/view/Aside/AsideRoadmap";
-import { MainBoard } from "../components/view/Main/MainBoard";
-import { MainHeader } from "../components/view/Main/MainHeader";
+import { FeedbackList } from "../components/view/Main/FeedbackList";
+import { FeedbackHeader } from "../components/view/Main/FeedbackHeader";
 import { ContainerLayout } from "../components/layout/ContainerLayout";
+import { useFeedbackStore } from "../stores/feedbackStore";
+import useFetch from "use-http";
+import { useEffect } from "react";
 
 export const Feedback = () => {
+  const { loading, error, data } = useFetch("./src/API/data.json", []);
+  const feedbacks = useFeedbackStore((state) => state.feedbacks);
+  const setFeedbackFromApi = useFeedbackStore(
+    (state) => state.setFeedbackFromApi
+  );
+
+  console.log(feedbacks);
+
+  // Set feedbacks from API
+  useEffect(() => {
+    if (data) {
+      setFeedbackFromApi(data);
+    }
+  }, [data]);
+
   return (
     <ContainerLayout>
       <Wrapper>
@@ -17,8 +35,8 @@ export const Feedback = () => {
           <AsideRoadmap />
         </Aside>
         <Main>
-          <MainHeader />
-          <MainBoard />
+          <FeedbackHeader />
+          <FeedbackList />
         </Main>
       </Wrapper>
     </ContainerLayout>

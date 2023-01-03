@@ -5,6 +5,7 @@ export const useFeedbackStore = create(
   persist(
     (set, get) => ({
       feedbacks: [],
+      setFeedbackFromApi: (feedback) => set({ feedbacks: feedback }),
       addFeedback: (feedback) => {
         set({
           feedbacks: [...get().feedbacks, feedback],
@@ -18,29 +19,3 @@ export const useFeedbackStore = create(
     }
   )
 );
-
-const initialOptions = [
-  { name: "Feature", selected: false },
-  { name: "UI", selected: false },
-  { name: "UX", selected: false },
-  { name: "Enhancement", selected: false },
-  { name: "Bug", selected: false },
-];
-
-export const useFeedbackOptionsStore = create((set) => ({
-  feedbackOptions: initialOptions,
-
-  setSelected: (name) => {
-    set({
-      feedbackOptions: feedbackOptions.map((option) => {
-        if (option.name === name) {
-          return {
-            ...option,
-            selected: !option.selected,
-          };
-        }
-        return option;
-      }),
-    });
-  },
-}));

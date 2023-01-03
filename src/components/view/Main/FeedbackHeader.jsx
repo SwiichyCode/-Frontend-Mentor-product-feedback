@@ -5,7 +5,7 @@ import iconSuggestions from "../../../assets/suggestions/icon-suggestions.svg";
 import iconDown from "../../../assets/shared/icon-arrow-down.svg";
 import { ButtonLink } from "../../common/ButtonLink";
 
-export const MainHeader = () => {
+export const FeedbackHeader = () => {
   return (
     <Container>
       <LeftSide>
