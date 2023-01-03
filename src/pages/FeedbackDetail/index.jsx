@@ -1,7 +1,7 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
-import { useFeedbackStore } from "../stores/feedbackStore";
+import { useFeedbackStore } from "../../stores/feedbackStore";
 
 export const FeedbackDetail = () => {
   const { id } = useParams();

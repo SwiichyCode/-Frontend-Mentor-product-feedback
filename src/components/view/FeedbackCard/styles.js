@@ -1,42 +1,11 @@
-import React from "react";
-import { Link } from "react-router-dom";
 import styled from "styled-components";
-import iconArrowUp from "../../../assets/shared/icon-arrow-up.svg";
-import iconComments from "../../../assets/shared/icon-comments.svg";
+import { Link } from "react-router-dom";
 
-export const FeedbackCard = ({ productRequest }) => {
-  const { id, title, category, comments, description, upvotes } =
-    productRequest;
-
-  return (
-    <StyledLink to={`${id}`}>
-      <Container>
-        <div className="left-side">
-          <UpVotes>
-            <img src={iconArrowUp} alt="icon-arrow-up" />
-            <span>{upvotes}</span>
-          </UpVotes>
-          <Informations>
-            <h1>{title}</h1>
-            <p>{description}</p>
-
-            <Category>{category}</Category>
-          </Informations>
-        </div>
-        <div className="right-side">
-          <img src={iconComments} alt="icon-comments" />
-          <span>{comments && comments.length}</span>
-        </div>
-      </Container>
-    </StyledLink>
-  );
-};
-
-const StyledLink = styled(Link)`
+export const StyledLink = styled(Link)`
   text-decoration: none;
 `;
 
-const Container = styled.li`
+export const Container = styled.li`
   width: 100%;
   min-height: 151px;
   display: flex;
@@ -68,7 +37,7 @@ const Container = styled.li`
   }
 `;
 
-const UpVotes = styled.div`
+export const UpVotes = styled.div`
   width: 40px;
   height: 53px;
   display: flex;
@@ -89,7 +58,7 @@ const UpVotes = styled.div`
   }
 `;
 
-const Informations = styled.div`
+export const Informations = styled.div`
   display: flex;
   flex-direction: column;
 
@@ -112,7 +81,7 @@ const Informations = styled.div`
   }
 `;
 
-const Category = styled.div`
+export const Category = styled.div`
   width: min-content;
   font-weight: 600;
   font-size: 13px;

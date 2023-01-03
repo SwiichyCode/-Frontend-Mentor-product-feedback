@@ -1,27 +1,27 @@
 import React from "react";
-import styled from "styled-components";
 import { useFeedbackStore } from "../../../stores/feedbackStore";
-import { FeedbackCard } from "./FeedbackCard";
+import { FeedbackCard } from "../FeedbackCard";
 import { Button } from "../../common/Button";
 import illustrationEmpty from "../../../assets/suggestions/illustration-empty.svg";
+import * as S from "./styles";
 
 export const FeedbackList = () => {
   const feedbacks = useFeedbackStore((state) => state.feedbacks);
   const { productRequests } = feedbacks;
 
   return (
-    <Container>
-      {productRequests.length > 0 ? (
-        <ListBoard>
+    <S.Container>
+      {productRequests && productRequests.length > 0 ? (
+        <S.ListBoard>
           {productRequests.map((productRequest) => (
             <FeedbackCard
               productRequest={productRequest}
               key={productRequest.id}
             />
           ))}
-        </ListBoard>
+        </S.ListBoard>
       ) : (
-        <EmptyBoard>
+        <S.EmptyBoard>
           <img src={illustrationEmpty} alt="illustration" />
           <h1>There is no feedback yet.</h1>
           <p>
@@ -29,52 +29,8 @@ export const FeedbackList = () => {
             hearing about new ideas to improve our app.
           </p>
           <Button text="+ Add Feedback" theme={"primary"} mSize={158} />
-        </EmptyBoard>
+        </S.EmptyBoard>
       )}
-    </Container>
+    </S.Container>
   );
 };
-
-const Container = styled.div`
-  width: 100%;
-  height: auto;
-`;
-
-const ListBoard = styled.ul`
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-`;
-
-const EmptyBoard = styled.div`
-  width: 100%;
-  height: 600px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-
-  img {
-    margin-bottom: 53px;
-  }
-
-  h1 {
-    font-weight: 700;
-    font-size: 24px;
-    line-height: 35px;
-    letter-spacing: -0.333333px;
-    color: #3a4374;
-    margin-bottom: 16px;
-  }
-
-  p {
-    max-width: 410px;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 23px;
-    text-align: center;
-    color: #647196;
-    margin-bottom: 48px;
-  }
-`;

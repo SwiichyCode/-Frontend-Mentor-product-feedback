@@ -1,18 +1,18 @@
 import React, { useState } from "react";
-import styled from "styled-components";
 import * as yup from "yup";
 import { v4 as uuidv4 } from "uuid";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { useFeedbackStore } from "../stores/feedbackStore";
-import { BackLink } from "../components/common/BackLink";
-import { ContainerLayout } from "../components/layout/ContainerLayout";
-import { FormLayout } from "../components/layout/FormLayout";
-import { Input } from "../components/common/Input";
-import { InputGroup } from "../components/common/InputGroup";
-import { Button } from "../components/common/Button";
-import { TextArea } from "../components/common/Textarea";
-import { Select } from "../components/common/Select";
+import { useFeedbackStore } from "../../stores/feedbackStore";
+import { BackLink } from "../../components/common/BackLink";
+import { ContainerLayout } from "../../components/layout/ContainerLayout";
+import { FormLayout } from "../../components/layout/FormLayout";
+import { Input } from "../../components/common/Input";
+import { InputGroup } from "../../components/common/InputGroup";
+import { Button } from "../../components/common/Button";
+import { TextArea } from "../../components/common/Textarea";
+import { Select } from "../../components/common/Select";
+import * as S from "./styles";
 
 const initialOptions = [
   { name: "Feature", selected: false },
@@ -53,10 +53,10 @@ export const FeedbackAdd = () => {
 
   return (
     <ContainerLayout>
-      <Wrapper>
+      <S.Wrapper>
         <BackLink />
         <FormLayout action={"add"} title="Create New Feedback">
-          <Form onSubmit={onSubmit}>
+          <S.Form onSubmit={onSubmit}>
             {/* Title */}
             <InputGroup
               title="Feedback title"
@@ -94,7 +94,7 @@ export const FeedbackAdd = () => {
                 error={errors.detail?.message}
               />
             </InputGroup>
-            <ButtonGroup>
+            <S.ButtonGroup>
               <Button theme={"secondary"} text="Cancel" mSize={93} />
               <Button
                 theme={"primary"}
@@ -102,35 +102,10 @@ export const FeedbackAdd = () => {
                 mSize={144}
                 type="submit"
               />
-            </ButtonGroup>
-          </Form>
+            </S.ButtonGroup>
+          </S.Form>
         </FormLayout>
-      </Wrapper>
+      </S.Wrapper>
     </ContainerLayout>
   );
 };
-
-const Wrapper = styled.div`
-  width: 100%;
-  max-width: 540px;
-  height: min-content;
-  display: flex;
-  flex-direction: column;
-  padding-top: 92px;
-  gap: 68px;
-`;
-
-const Form = styled.form`
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-  margin-top: 40px;
-`;
-
-const ButtonGroup = styled.div`
-  width: 100%;
-  display: flex;
-  justify-content: flex-end;
-  gap: 16px;
-  margin-top: 32px;
-`;
