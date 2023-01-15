@@ -17,6 +17,7 @@ export const FeedbackList = () => {
             <FeedbackCard
               productRequest={productRequest}
               key={productRequest.id}
+              activeLink
             />
           ))}
         </S.ListBoard>

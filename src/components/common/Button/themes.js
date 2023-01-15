@@ -13,12 +13,13 @@ export const theme = {
   default: {
     backgroundColor: "transparent",
     hoverBackgroundColor: "transparent",
-    color: "#9699AA",
+    color: "#4661E6",
     hoverColor: "#022959",
+    textDecoration: "underline",
   },
-  confirm: {
-    backgroundColor: "#483EFF",
-    hoverBackgroundColor: "#928CFF",
-    color: "var(--White)",
+  edit: {
+    backgroundColor: "#4661E6",
+    hoverBackgroundColor: "#7C91F9",
+    color: "#fff",
   },
 };

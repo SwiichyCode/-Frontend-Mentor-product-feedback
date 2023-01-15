@@ -3,14 +3,14 @@ import iconArrowUp from "../../../assets/shared/icon-arrow-up.svg";
 import iconComments from "../../../assets/shared/icon-comments.svg";
 import * as S from "./styles";
 
-export const FeedbackCard = ({ productRequest }) => {
+export const FeedbackCard = ({ productRequest, activeLink }) => {
   const { id, title, category, comments, description, upvotes } =
     productRequest;
 
   // Todo refactor semantic html and naming
 
   return (
-    <S.StyledLink to={`${id}`}>
+    <S.StyledLink to={activeLink ? `${id}` : null}>
       <S.Container>
         <div className="left-side">
           <S.UpVotes>

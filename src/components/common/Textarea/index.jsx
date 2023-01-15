@@ -11,6 +11,7 @@ export const TextArea = ({ name, register, error, ...props }) => {
 };
 
 const Container = styled.div`
+  width: 100%;
   display: flex;
   flex-direction: column;
   gap: 4px;
@@ -18,7 +19,7 @@ const Container = styled.div`
 
 const StyledTextArea = styled.textarea`
   width: 100%;
-  height: 96px;
+  height: ${({ height }) => `${height}px` || "96px"};
   background: #f7f8fd;
   border-radius: 5px;
   transition: all 0.3s ease-in-out;

@@ -15,8 +15,8 @@ export const Select = ({
   setCurrentOption,
   register,
 }) => {
-  const [open, isOpen] = useToggle(false);
-  const ref = useDetectClickOutside({ onTriggered: () => isOpen(false) });
+  const [open, setOpen] = useToggle(false);
+  const ref = useDetectClickOutside({ onTriggered: () => setOpen(false) });
 
   const handleClick = (e) => {
     setOptions((prev) =>
@@ -36,7 +36,7 @@ export const Select = ({
     );
 
     setCurrentOption(e.target.value);
-    isOpen(false);
+    setOpen(false);
   };
 
   return (
@@ -50,7 +50,7 @@ export const Select = ({
         {...register(name)}
         onClick={(e) => {
           e.stopPropagation();
-          isOpen((prev) => !prev);
+          setOpen((prev) => !prev);
         }}
         open={open}
       >

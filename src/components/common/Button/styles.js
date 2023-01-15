@@ -22,6 +22,7 @@ export const StyledButton = styled.button`
   &:hover {
     background-color: ${(props) => theme[props.theme].hoverBackgroundColor};
     color: ${(props) => theme[props.theme].hoverColor};
+    text-decoration: ${(props) => theme[props.theme].textDecoration};
   }
   ${(props) => handleChildren(props.children)};
   &:focus {
