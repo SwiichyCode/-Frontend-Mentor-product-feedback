@@ -81,6 +81,7 @@ export const Informations = styled.div`
   }
 `;
 
+// Create a composant
 export const Category = styled.div`
   width: min-content;
   font-weight: 600;
