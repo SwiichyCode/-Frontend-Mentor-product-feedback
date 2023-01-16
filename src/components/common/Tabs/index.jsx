@@ -1,7 +1,6 @@
-import React, { useRef } from "react";
 import styled from "styled-components";
 
-export const ButtonFilter = ({ item, toggleCategory, ref }) => {
+export const Tabs = ({ item, toggleCategory, ref }) => {
   const { text, active, id } = item;
 
   return (

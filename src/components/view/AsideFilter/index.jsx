@@ -1,17 +1,26 @@
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import { AsideCardLayout } from "../../layout/AsideCardLayout";
-import { ButtonFilter } from "../../common/ButtonFilter";
+import { Tabs } from "../../common/Tabs";
 import { useCategoryStore } from "../../../stores/categoryStore";
+import { useActiveStatus } from "../../../hooks/useActiveStatus";
 
 export const AsideFilter = () => {
   const category = useCategoryStore((state) => state.category);
   const toggleCategory = useCategoryStore((state) => state.toggleCategory);
+  const activeStatus = useActiveStatus(category);
+
+  useEffect(() => {
+    if (activeStatus.length === 0) {
+      toggleCategory(category[0].id);
+    }
+  }, [category]);
 
   return (
     <AsideCardLayout>
       <Container>
         {category.map((item) => {
-          return <ButtonFilter item={item} toggleCategory={toggleCategory} />;
+          return <Tabs item={item} toggleCategory={toggleCategory} />;
         })}
       </Container>
     </AsideCardLayout>

@@ -13,7 +13,6 @@ export const useCategoryStore = create((set) => ({
   category: initialValue,
   setCategory: (category) => set({ category }),
 
-  // This is the function that will be called when the user clicks on a category
   toggleCategory: (id) => {
     const newCategory = initialValue.map((item) => {
       if (item.id === id) {

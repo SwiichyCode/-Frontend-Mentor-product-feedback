@@ -11,7 +11,7 @@ import * as S from "./styles";
 
 export const Feedback = () => {
   const { loading, error, data } = useFetch("./src/API/data.json", []);
-  const feedbacks = useFeedbackStore((state) => state.feedbacks);
+
   const setFeedbackFromApi = useFeedbackStore(
     (state) => state.setFeedbackFromApi
   );
@@ -20,6 +20,10 @@ export const Feedback = () => {
   useEffect(() => {
     if (data) {
       setFeedbackFromApi(data);
+    }
+
+    if (error) {
+      console.log(error);
     }
   }, [data]);
 

@@ -12,7 +12,7 @@ export const FeedbackHeader = () => {
       <S.LeftSide>
         <S.Suggestions>
           <img src={iconSuggestions} alt="icon-suggestions" />
-          <h1>{filteredList.length} Suggestions</h1>
+          <h1>{filteredList && filteredList.length} Suggestions</h1>
         </S.Suggestions>
         <S.SortUpVotes>
           <p>

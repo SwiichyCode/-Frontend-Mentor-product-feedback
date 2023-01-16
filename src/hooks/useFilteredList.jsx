@@ -10,7 +10,7 @@ export const useFilteredList = () => {
   const activeCategory = useActiveStatus(category);
   const { productRequests } = feedbacks;
 
-  const filterByMultipleStatus = (status) => {
+  const filterByStatus = (status) => {
     if (status.length === 0 || status[0] === "all") return productRequests;
 
     const filteredByStatus = productRequests.filter((productRequest) => {
@@ -21,7 +21,7 @@ export const useFilteredList = () => {
   };
 
   useEffect(() => {
-    setFilteredList(filterByMultipleStatus(activeCategory));
+    setFilteredList(filterByStatus(activeCategory));
   }, [activeCategory]);
 
   return filteredList;

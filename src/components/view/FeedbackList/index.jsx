@@ -1,3 +1,5 @@
+import React from "react";
+import { useFeedbackStore } from "../../../stores/feedbackStore";
 import { useFilteredList } from "../../../hooks/useFilteredList";
 import { FeedbackCard } from "../FeedbackCard";
 import { Button } from "../../common/Button";
@@ -5,11 +7,12 @@ import illustrationEmpty from "../../../assets/suggestions/illustration-empty.sv
 import * as S from "./styles";
 
 export const FeedbackList = () => {
+  const feedbackList = useFeedbackStore((state) => state.feedbacks);
   const filteredList = useFilteredList();
 
   return (
     <S.Container>
-      {filteredList && filteredList.length > 0 ? (
+      {filteredList && !feedbackList.length > 0 ? (
         <S.ListBoard>
           {filteredList.map((productRequest) => (
             <FeedbackCard
