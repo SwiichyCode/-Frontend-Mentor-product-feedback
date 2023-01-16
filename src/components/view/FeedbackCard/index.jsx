@@ -1,15 +1,11 @@
 import React from "react";
 import { Chip } from "../../common/Chip";
-import iconArrowUp from "../../../assets/shared/icon-arrow-up.svg";
-import iconComments from "../../../assets/shared/icon-comments.svg";
-import * as S from "./styles";
 import { ButtonVote } from "../../common/ButtonVote";
+import { Badge } from "../../common/Badge";
+import * as S from "./styles";
 
-export const FeedbackCard = ({ productRequest, activeLink }) => {
-  const { id, title, category, comments, description, upvotes } =
-    productRequest;
-
-  // Todo refactor semantic html and naming
+export const FeedbackCard = ({ feedback, activeLink }) => {
+  const { id, title, category, comments, description, upvotes } = feedback;
 
   return (
     <S.StyledLink to={activeLink ? `${id}` : null}>
@@ -19,14 +15,10 @@ export const FeedbackCard = ({ productRequest, activeLink }) => {
           <S.Informations>
             <h1>{title}</h1>
             <p>{description}</p>
-
             <Chip text={category} />
           </S.Informations>
         </div>
-        <div className="right-side">
-          <img src={iconComments} alt="icon-comments" />
-          <span>{comments && comments.length}</span>
-        </div>
+        <Badge comments={comments} />
       </S.Container>
     </S.StyledLink>
   );

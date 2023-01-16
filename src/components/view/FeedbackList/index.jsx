@@ -7,19 +7,15 @@ import illustrationEmpty from "../../../assets/suggestions/illustration-empty.sv
 import * as S from "./styles";
 
 export const FeedbackList = () => {
-  const feedbackList = useFeedbackStore((state) => state.feedbacks);
-  const filteredList = useFilteredList();
+  const feedbacks = useFeedbackStore((state) => state.feedbacks);
+  const filteredFeedbacks = useFilteredList();
 
   return (
     <S.Container>
-      {filteredList && feedbackList.length > 0 ? (
+      {filteredFeedbacks && feedbacks.length > 0 ? (
         <S.ListBoard>
-          {filteredList.map((productRequest) => (
-            <FeedbackCard
-              productRequest={productRequest}
-              key={productRequest.id}
-              activeLink
-            />
+          {filteredFeedbacks.map((feedback) => (
+            <FeedbackCard feedback={feedback} key={feedback.id} activeLink />
           ))}
         </S.ListBoard>
       ) : (

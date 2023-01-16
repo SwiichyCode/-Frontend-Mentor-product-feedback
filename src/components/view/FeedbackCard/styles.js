@@ -20,42 +20,6 @@ export const Container = styled.li`
     display: flex;
     gap: 40px;
   }
-
-  .right-side {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-
-    span {
-      font-weight: 700;
-      font-size: 16px;
-      line-height: 23px;
-      text-align: center;
-      letter-spacing: -0.222222px;
-      color: #3a4374;
-    }
-  }
-`;
-
-export const UpVotes = styled.div`
-  width: 40px;
-  height: 53px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 8px;
-  background: #f2f4fe;
-  border-radius: 10px;
-
-  span {
-    font-weight: 700;
-    font-size: 13px;
-    line-height: 19px;
-    text-align: center;
-    letter-spacing: -0.180556px;
-    color: #3a4374;
-  }
 `;
 
 export const Informations = styled.div`
@@ -79,17 +43,4 @@ export const Informations = styled.div`
     color: #647196;
     margin-bottom: 12px;
   }
-`;
-
-// Create a composant
-export const Category = styled.div`
-  width: min-content;
-  font-weight: 600;
-  font-size: 13px;
-  line-height: 19px;
-  color: #4661e6;
-  text-transform: capitalize;
-  background: #f2f4ff;
-  border-radius: 10px;
-  padding: 5px 17px 6px 16px;
 `;
