@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React, { useRef } from "react";
 import styled from "styled-components";
 
-export const ButtonFilter = ({ item, handleClick }) => {
-  const { text, active } = item;
+export const ButtonFilter = ({ item, toggleCategory, ref }) => {
+  const { text, active, id } = item;
 
   return (
-    <Container active={active} onClick={() => handleClick(text)}>
+    <Container active={active} onClick={() => toggleCategory(id)} ref={ref}>
       {text}
     </Container>
   );

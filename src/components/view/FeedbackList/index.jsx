@@ -1,5 +1,8 @@
 import React from "react";
 import { useFeedbackStore } from "../../../stores/feedbackStore";
+import { useCategoryStore } from "../../../stores/categoryStore";
+import { useActiveStatus } from "../../../hooks/useActiveStatus";
+import { useFilteredList } from "../../../hooks/useFilteredList";
 import { FeedbackCard } from "../FeedbackCard";
 import { Button } from "../../common/Button";
 import illustrationEmpty from "../../../assets/suggestions/illustration-empty.svg";
@@ -7,13 +10,16 @@ import * as S from "./styles";
 
 export const FeedbackList = () => {
   const feedbacks = useFeedbackStore((state) => state.feedbacks);
+  const category = useCategoryStore((state) => state.category);
+  const activeCategory = useActiveStatus(category);
   const { productRequests } = feedbacks;
+  const filteredList = useFilteredList(activeCategory, productRequests);
 
   return (
     <S.Container>
       {productRequests && productRequests.length > 0 ? (
         <S.ListBoard>
-          {productRequests.map((productRequest) => (
+          {filteredList.map((productRequest) => (
             <FeedbackCard
               productRequest={productRequest}
               key={productRequest.id}

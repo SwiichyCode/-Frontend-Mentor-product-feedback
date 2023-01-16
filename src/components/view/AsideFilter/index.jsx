@@ -1,35 +1,17 @@
-import React, { useState } from "react";
 import styled from "styled-components";
 import { AsideCardLayout } from "../../layout/AsideCardLayout";
 import { ButtonFilter } from "../../common/ButtonFilter";
+import { useCategoryStore } from "../../../stores/categoryStore";
 
 export const AsideFilter = () => {
-  const initialValue = [
-    { text: "All", active: false },
-    { text: "UI", active: false },
-    { text: "UX", active: false },
-    { text: "Enhancement", active: false },
-    { text: "Bug", active: false },
-    { text: "Feature", active: false },
-  ];
-
-  const [items, setItems] = useState(initialValue);
-
-  const handleClick = (text) => {
-    const newItems = items.map((item) => {
-      if (item.text === text) {
-        return { ...item, active: !item.active };
-      }
-      return item;
-    });
-    setItems(newItems);
-  };
+  const category = useCategoryStore((state) => state.category);
+  const toggleCategory = useCategoryStore((state) => state.toggleCategory);
 
   return (
     <AsideCardLayout>
       <Container>
-        {items.map((item) => {
-          return <ButtonFilter item={item} handleClick={handleClick} />;
+        {category.map((item) => {
+          return <ButtonFilter item={item} toggleCategory={toggleCategory} />;
         })}
       </Container>
     </AsideCardLayout>
