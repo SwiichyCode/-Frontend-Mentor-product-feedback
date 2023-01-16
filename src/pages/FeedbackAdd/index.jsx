@@ -43,12 +43,14 @@ export const FeedbackAdd = () => {
     const newFeedback = {
       id: uuidv4(),
       title: title,
-      status: currentOption,
-      detail: detail,
+      category: currentOption,
+      comments: [],
+      status: "Pending",
+      description: detail,
+      upvotes: 0,
     };
 
-    // addFeedback(newFeedback);
-    console.log(newFeedback);
+    addFeedback(newFeedback);
   });
 
   return (

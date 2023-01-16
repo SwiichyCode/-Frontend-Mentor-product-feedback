@@ -1,14 +1,7 @@
 import PropTypes from "prop-types";
 import * as S from "./styles.js";
 
-export const ButtonLink = ({
-  text,
-  theme,
-
-  linkTo,
-  children,
-  ...props
-}) => {
+export const ButtonLink = ({ text, theme, linkTo, children, ...props }) => {
   return (
     <S.StyledButton theme={theme} {...props} to={linkTo}>
       {text} {children}

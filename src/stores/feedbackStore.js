@@ -6,6 +6,7 @@ export const useFeedbackStore = create(
     (set, get) => ({
       feedbacks: [],
       setFeedbackFromApi: (feedback) => set({ feedbacks: feedback }),
+
       addFeedback: (feedback) => {
         set({
           feedbacks: [...get().feedbacks, feedback],

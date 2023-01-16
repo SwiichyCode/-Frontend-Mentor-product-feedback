@@ -12,11 +12,7 @@ import { Button } from "../../components/common/Button";
 export const FeedbackDetail = () => {
   const { id } = useParams();
   const feedbacks = useFeedbackStore((state) => state.feedbacks);
-  const currentProduct = feedbacks.productRequests.filter(
-    (item) => item.id === Number(id)
-  );
-
-  console.log(currentProduct);
+  const currentProduct = feedbacks.filter((item) => item.id === Number(id));
 
   return (
     <ContainerLayout>

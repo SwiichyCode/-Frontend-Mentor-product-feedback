@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import * as S from "./styles.js";
 
-export const Button = ({ text, theme, children, activeLink, ...props }) => {
+export const Button = ({ text, theme, children, ...props }) => {
   return (
     <S.StyledButton theme={theme} {...props}>
       {text} {children}

@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import iconArrowLeft from "../../../assets/shared/icon-arrow-left.svg";
 
-export const BackLink = () => {
+export const BackLink = ({ color }) => {
   return (
-    <StyledLink to={"/"}>
+    <StyledLink to={"/"} color={color}>
       <img src={iconArrowLeft} alt="icon-arrow-left" />
       Go back
     </StyledLink>
@@ -16,7 +16,8 @@ const StyledLink = styled(Link)`
   font-weight: 700;
   font-size: 14px;
   line-height: 20px;
-  color: #647196;
+
+  color: ${({ color }) => color || "#647196"};
   text-decoration: none;
 
   img {

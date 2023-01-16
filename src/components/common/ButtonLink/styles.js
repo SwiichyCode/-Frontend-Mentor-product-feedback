@@ -21,6 +21,8 @@ export const StyledButton = styled(Link)`
   color: ${(props) => theme[props.theme].color};
   background-color: ${(props) => theme[props.theme].backgroundColor};
   text-decoration: none;
+  transition: all 0.2s ease-in-out;
+
   &:hover {
     background-color: ${(props) => theme[props.theme].hoverBackgroundColor};
     color: ${(props) => theme[props.theme].hoverColor};
