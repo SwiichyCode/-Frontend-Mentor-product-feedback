@@ -8,12 +8,11 @@ export const useFilteredList = () => {
   const feedbacks = useFeedbackStore((state) => state.feedbacks);
   const category = useCategoryStore((state) => state.category);
   const activeCategory = useActiveStatus(category);
-  const { productRequests } = feedbacks;
 
   const filterByStatus = (status) => {
-    if (status.length === 0 || status[0] === "all") return productRequests;
+    if (status.length === 0 || status[0] === "all") return feedbacks;
 
-    const filteredByStatus = productRequests.filter((productRequest) => {
+    const filteredByStatus = feedbacks.filter((productRequest) => {
       return status.includes(productRequest.category);
     });
 

@@ -12,7 +12,7 @@ export const FeedbackList = () => {
 
   return (
     <S.Container>
-      {filteredList && !feedbackList.length > 0 ? (
+      {filteredList && feedbackList.length > 0 ? (
         <S.ListBoard>
           {filteredList.map((productRequest) => (
             <FeedbackCard

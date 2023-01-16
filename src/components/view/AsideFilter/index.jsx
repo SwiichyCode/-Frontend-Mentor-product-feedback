@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
 import styled from "styled-components";
 import { AsideCardLayout } from "../../layout/AsideCardLayout";
-import { Tabs } from "../../common/Tabs";
 import { useCategoryStore } from "../../../stores/categoryStore";
 import { useActiveStatus } from "../../../hooks/useActiveStatus";
+import { Tabs } from "../../common/Tabs";
 
 export const AsideFilter = () => {
   const category = useCategoryStore((state) => state.category);
