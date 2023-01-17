@@ -1,6 +1,6 @@
 import React from "react";
 import { useFeedbackStore } from "../../../stores/feedbackStore";
-import { useFilteredList } from "../../../hooks/useFilteredList";
+import { useFilteredFeedback } from "../../../hooks/useFilteredFeedback";
 import { FeedbackCard } from "../FeedbackCard";
 import { Button } from "../../common/Button";
 import illustrationEmpty from "../../../assets/suggestions/illustration-empty.svg";
@@ -8,7 +8,7 @@ import * as S from "./styles";
 
 export const FeedbackList = () => {
   const feedbacks = useFeedbackStore((state) => state.feedbacks);
-  const filteredFeedbacks = useFilteredList();
+  const filteredFeedbacks = useFilteredFeedback();
 
   return (
     <S.Container>

@@ -3,7 +3,7 @@ import { useFeedbackStore } from "../stores/feedbackStore";
 import { useCategoryStore } from "../stores/categoryStore";
 import { useActiveStatus } from "./useActiveStatus";
 
-export const useFilteredList = () => {
+export const useFilteredFeedback = () => {
   const [filteredList, setFilteredList] = useState([]);
   const feedbacks = useFeedbackStore((state) => state.feedbacks);
   const category = useCategoryStore((state) => state.category);

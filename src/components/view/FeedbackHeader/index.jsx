@@ -1,11 +1,11 @@
 import { ButtonLink } from "../../common/ButtonLink";
-import { useFilteredList } from "../../../hooks/useFilteredList";
+import { useFilteredFeedback } from "../../../hooks/useFilteredFeedback";
 import iconSuggestions from "../../../assets/suggestions/icon-suggestions.svg";
 import iconDown from "../../../assets/shared/icon-arrow-down.svg";
 import * as S from "./styles";
 
 export const FeedbackHeader = () => {
-  const filteredList = useFilteredList();
+  const filteredList = useFilteredFeedback();
 
   return (
     <S.Container>

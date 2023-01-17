@@ -1,21 +1,11 @@
 import React from "react";
 import styled from "styled-components";
-import { useFeedbackStore } from "../../../stores/feedbackStore";
 import { RoadmapCard } from "../RoadmapCard";
-import { initialStatus, generateSubtitles } from "./utils";
+import { generateSubtitles } from "./utils";
+import { useRoadmap } from "../../../hooks/useRoadmap";
 
 export const RoadmapList = () => {
-  const feedbacks = useFeedbackStore((state) => state.feedbacks);
-  const status = initialStatus(feedbacks);
-  const roadmap = getRoadmap(status);
-
-  function getRoadmap(status) {
-    return feedbacks.filter((feedback) => status.includes(feedback.status));
-  }
-
-  function roadmapLength(status) {
-    return roadmap.filter((feedback) => feedback.status === status).length;
-  }
+  const { roadmapLength, status, roadmap } = useRoadmap();
 
   return (
     <Main>
