@@ -23,14 +23,14 @@ export const FeebackAddComments = () => {
   return (
     <Container onSubmit={onSubmit}>
       <h2>Add Comment</h2>
-      <TextArea
+      {/* <TextArea
         name="comment"
         register={register}
         height={80}
         onChange={(e) => handleCount(e)}
         maxLength={254}
         style={{ minHeight: "90px" }}
-      />
+      /> */}
       <Wrapper characterCount={characterCount}>
         <span>{characterCount} character left</span>
         <Button
