@@ -3,8 +3,20 @@ import styled from "styled-components";
 export const Tabs = ({ item, toggleCategory, ref }) => {
   const { text, active, id } = item;
 
+  const handlePressEnter = (e) => {
+    if (e.key === "Enter") {
+      toggleCategory(id);
+    }
+  };
+
   return (
-    <Container active={active} onClick={() => toggleCategory(id)} ref={ref}>
+    <Container
+      active={active}
+      onClick={() => toggleCategory(id)}
+      onKeyDown={(e) => handlePressEnter(e)}
+      ref={ref}
+      tabIndex={0}
+    >
       {text}
     </Container>
   );
@@ -22,6 +34,7 @@ export const Container = styled.div`
   padding: 5px 17px 6px 16px;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
+  user-select: none;
 
   &:hover {
     color: ${({ active }) => (active ? "#FFFFFF" : "#4661e6")};

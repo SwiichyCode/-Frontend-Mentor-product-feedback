@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { useForm } from "react-hook-form";
 import { TextArea } from "../../common/TextArea";
@@ -11,7 +11,6 @@ export const FeebackAddComments = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const ref = useRef();
   const [characterCount, setCharacterCount] = useState(254);
   const onSubmit = handleSubmit((comment) => {
     console.log(comment);
@@ -28,7 +27,7 @@ export const FeebackAddComments = () => {
         name="comment"
         register={register}
         height={80}
-        onChange={handleCount}
+        onChange={(e) => handleCount(e)}
         maxLength={254}
         style={{ minHeight: "90px" }}
       />

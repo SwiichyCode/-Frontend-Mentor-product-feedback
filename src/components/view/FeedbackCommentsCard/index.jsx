@@ -1,8 +1,6 @@
 import React from "react";
-import * as yup from "yup";
 import { useDetectClickOutside } from "react-detect-click-outside";
 import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
 import { useToggle } from "../../../hooks/useToggle";
 import { Button } from "../../common/Button";
 import { TextArea } from "../../common/TextArea";

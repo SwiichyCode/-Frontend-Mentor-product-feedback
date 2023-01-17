@@ -4,8 +4,9 @@ import { ButtonVote } from "../../common/ButtonVote";
 import { Badge } from "../../common/Badge";
 import * as S from "./styles";
 
-export const FeedbackCard = ({ feedback, activeLink }) => {
-  const { id, title, category, comments, description, upvotes } = feedback;
+export const FeedbackCard = ({ productRequest, activeLink }) => {
+  const { id, title, category, comments, description, upvotes } =
+    productRequest;
 
   return (
     <S.StyledLink to={activeLink ? `${id}` : null}>

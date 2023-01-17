@@ -1,12 +1,14 @@
 import React from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 import { Chip } from "../../common/Chip";
 import { ButtonVote } from "../../common/ButtonVote";
+import { Badge } from "../../common/Badge";
 import { removeSpecialCharacters } from "./utils";
 export const RoadmapCard = ({ feedback }) => {
-  const { title, description, status, category, upvotes } = feedback;
+  const { title, description, status, category, upvotes, comments, id } =
+    feedback;
 
-  console.log(feedback);
   return (
     <Container status={status}>
       <div className="status">
@@ -14,16 +16,32 @@ export const RoadmapCard = ({ feedback }) => {
         <h3>{removeSpecialCharacters(status)}</h3>
       </div>
       <div className="details">
-        <h4>{title}</h4>
+        <StyledLink to={id}>{title}</StyledLink>
         <p>{description}</p>
       </div>
       <Chip text={category} />
       <div className="votes">
         <ButtonVote votes={upvotes} row />
+        <Badge comments={comments} />
       </div>
     </Container>
   );
 };
+
+const StyledLink = styled(Link)`
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 26px;
+  letter-spacing: -0.25px;
+  color: #3a4374;
+  margin-bottom: 4px;
+  cursor: pointer;
+  transition: color 0.2s ease-in-out;
+
+  &:hover {
+    color: #4661e6;
+  }
+`;
 
 const Container = styled.li`
   width: 100%;
@@ -56,21 +74,6 @@ const Container = styled.li`
 
   .details {
     margin-bottom: 16px;
-
-    h4 {
-      font-weight: 700;
-      font-size: 18px;
-      line-height: 26px;
-      letter-spacing: -0.25px;
-      color: #3a4374;
-      margin-bottom: 4px;
-      cursor: pointer;
-      transition: color 0.2s ease-in-out;
-
-      &:hover {
-        color: #4661e6;
-      }
-    }
 
     p {
       font-weight: 400;

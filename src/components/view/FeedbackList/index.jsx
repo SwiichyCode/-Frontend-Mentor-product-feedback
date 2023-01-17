@@ -15,7 +15,11 @@ export const FeedbackList = () => {
       {filteredFeedbacks && feedbacks.length > 0 ? (
         <S.ListBoard>
           {filteredFeedbacks.map((feedback) => (
-            <FeedbackCard feedback={feedback} key={feedback.id} activeLink />
+            <FeedbackCard
+              productRequest={feedback}
+              key={feedback.id}
+              activeLink
+            />
           ))}
         </S.ListBoard>
       ) : (
