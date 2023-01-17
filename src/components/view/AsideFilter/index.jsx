@@ -14,7 +14,7 @@ export const AsideFilter = () => {
     if (activeStatus.length === 0) {
       toggleCategory(category[0].id);
     }
-  }, [category]);
+  }, [activeStatus]);
 
   return (
     <AsideCardLayout>

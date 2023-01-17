@@ -7,6 +7,7 @@ export const Wrapper = styled.div`
   display: flex;
   gap: 30px;
   padding-top: 92px;
+  padding-bottom: 92px;
 `;
 
 export const Aside = styled.aside`

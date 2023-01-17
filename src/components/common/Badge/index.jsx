@@ -23,6 +23,7 @@ const Container = styled.div`
     text-align: center;
     letter-spacing: -0.222222px;
     color: #3a4374;
+    /* background: ${(props) => props.theme.colors.blue}; */
     opacity: ${(props) => (props.comments ? 1 : 0.5)};
   }
 `;
