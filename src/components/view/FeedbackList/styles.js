@@ -8,6 +8,10 @@ export const ListBoard = styled.ul`
   display: flex;
   flex-direction: column;
   gap: 20px;
+
+  @media (max-width: 768px) {
+    gap: 16px;
+  }
 `;
 
 export const EmptyBoard = styled.div`

@@ -20,4 +20,10 @@ const Container = styled.aside`
   display: flex;
   flex-direction: column;
   gap: 24px;
+
+  @media screen and (max-width: 768px) {
+    max-width: 100%;
+    flex-direction: row;
+    gap: 10px;
+  }
 `;

@@ -3,12 +3,14 @@ import styled from "styled-components";
 import { AsideCardLayout } from "../../layout/AsideCardLayout";
 import { useCategoryStore } from "../../../stores/categoryStore";
 import { useActiveStatus } from "../../../hooks/useActiveStatus";
+import { useWindowSize } from "../../../hooks/useWindowSize";
 import { Tabs } from "../../common/Tabs";
 
 export const AsideFilter = () => {
   const category = useCategoryStore((state) => state.category);
   const toggleCategory = useCategoryStore((state) => state.toggleCategory);
   const activeStatus = useActiveStatus(category);
+  // const size = useWindowSize();
 
   useEffect(() => {
     if (activeStatus.length === 0) {
@@ -30,7 +32,7 @@ export const AsideFilter = () => {
 const Container = styled.div`
   display: flex;
   flex-wrap: wrap;
-  gap: 1.4rem;
+  gap: 14px 8px;
   background: #ffffff;
   border-radius: 10px;
 `;

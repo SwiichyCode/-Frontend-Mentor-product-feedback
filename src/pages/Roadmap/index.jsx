@@ -21,5 +21,4 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 48px;
-  margin: 78px 0;
 `;

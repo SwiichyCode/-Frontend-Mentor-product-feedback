@@ -5,7 +5,7 @@ import { ButtonLink } from "../../common/ButtonLink";
 
 export const RoadmapHeader = () => {
   return (
-    <Container>
+    <Header>
       <div className="left-side">
         <BackLink color="#fff" />
         <h1>Roadmap</h1>
@@ -16,11 +16,11 @@ export const RoadmapHeader = () => {
         theme={"primary"}
         mSize={158}
       />
-    </Container>
+    </Header>
   );
 };
 
-const Container = styled.div`
+const Header = styled.header`
   width: 100%;
   display: flex;
   justify-content: space-between;

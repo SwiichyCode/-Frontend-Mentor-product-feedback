@@ -21,6 +21,10 @@ const Wrapper = styled.section`
   justify-content: flex-end;
   color: #ffffff;
 
+  @media (max-width: 768px) {
+    height: 100%;
+  }
+
   h1 {
     font-weight: 700;
     font-size: 2rem;

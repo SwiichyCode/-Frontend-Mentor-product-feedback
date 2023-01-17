@@ -6,16 +6,12 @@ export const Wrapper = styled.div`
   max-width: calc(255px + 825px + 30px);
   display: flex;
   gap: 30px;
-  padding-top: 92px;
-  padding-bottom: 92px;
-`;
+  /* padding-top: 92px;
+  padding-bottom: 92px; */
 
-export const Aside = styled.aside`
-  width: 100%;
-  max-width: 255px;
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
 `;
 
 export const Main = styled.main`

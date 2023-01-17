@@ -16,7 +16,7 @@ export const RoadmapCard = ({ feedback }) => {
         <h3>{removeSpecialCharacters(status)}</h3>
       </div>
       <div className="details">
-        <StyledLink to={id}>{title}</StyledLink>
+        <StyledLink to={`/${id}`}>{title}</StyledLink>
         <p>{description}</p>
       </div>
       <Chip text={category} />
@@ -36,6 +36,7 @@ const StyledLink = styled(Link)`
   color: #3a4374;
   margin-bottom: 4px;
   cursor: pointer;
+  text-decoration: none;
   transition: color 0.2s ease-in-out;
 
   &:hover {

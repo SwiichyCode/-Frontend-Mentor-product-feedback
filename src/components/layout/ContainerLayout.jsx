@@ -11,4 +11,9 @@ const Container = styled.div`
   display: flex;
   justify-content: center;
   background: #f7f8fd;
+  padding: 92px 40px;
+
+  @media (max-width: 768px) {
+    padding: 59px 40px;
+  }
 `;

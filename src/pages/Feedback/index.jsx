@@ -12,7 +12,6 @@ export const Feedback = () => {
   const feedbacks = useFeedbackStore((state) => state.feedbacks);
   const setFeedbacks = useFeedbackStore((state) => state.setFeedbackFromApi);
 
-  console.log("feedbacks", feedbacks);
   // Set feedbacks from API
   useEffect(() => {
     if (data) {
@@ -21,10 +20,6 @@ export const Feedback = () => {
       console.log(error);
     }
   }, [data]);
-
-  // useEffect(() => {
-  //   setFeedbacks(feedbacks);
-  // }, [feedbacks]);
 
   return (
     <ContainerLayout>

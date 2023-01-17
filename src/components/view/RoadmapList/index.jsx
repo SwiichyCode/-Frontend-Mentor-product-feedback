@@ -18,10 +18,10 @@ export const RoadmapList = () => {
   }
 
   return (
-    <Container>
+    <Main>
       {status.map((status, index) => {
         return (
-          <Column key={index}>
+          <ColumnSection key={index}>
             <ColumnHeader>
               <ColumnTitle>
                 {status} ({roadmapLength(status)})
@@ -36,28 +36,28 @@ export const RoadmapList = () => {
                 }
               })}
             </ColumnList>
-          </Column>
+          </ColumnSection>
         );
       })}
-    </Container>
+    </Main>
   );
 };
 
-const Container = styled.ul`
+const Main = styled.main`
   width: 100%;
   display: flex;
   gap: 30px;
 `;
 
-const Column = styled.ul`
+const ColumnSection = styled.section`
   width: 100%;
-  min-width: 350px;
+  max-width: 350px;
   display: flex;
   flex-direction: column;
   gap: 32px;
 `;
 
-const ColumnHeader = styled.div``;
+const ColumnHeader = styled.header``;
 
 const ColumnTitle = styled.h2`
   font-weight: 700;
@@ -76,7 +76,7 @@ const ColumnSubtitle = styled.p`
   color: #647196;
 `;
 
-const ColumnList = styled.div`
+const ColumnList = styled.ul`
   width: 100%;
   display: flex;
   flex-direction: column;
