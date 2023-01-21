@@ -5,12 +5,12 @@ import { Chip } from "../../common/Chip";
 import { ButtonVote } from "../../common/ButtonVote";
 import { Badge } from "../../common/Badge";
 import { removeSpecialCharacters } from "./utils";
-export const RoadmapCard = ({ feedback }) => {
+export const RoadmapCard = ({ feedback, maxSize }) => {
   const { title, description, status, category, upvotes, comments, id } =
     feedback;
 
   return (
-    <Container status={status}>
+    <Container status={status} maxSize={maxSize}>
       <div className="status">
         <div className="dot"></div>
         <h3>{removeSpecialCharacters(status)}</h3>
@@ -46,10 +46,15 @@ const StyledLink = styled(Link)`
 
 const Container = styled.li`
   width: 100%;
+  max-width: ${({ maxSize }) => (maxSize ? props.maxSize : "350px")};
   background: #ffffff;
   border-radius: 5px;
   border-top: 6px solid ${(props) => generateTheme(props.status)};
   padding: 31px 32px;
+
+  @media (max-width: 868px) {
+    max-width: 250px;
+  }
 
   .status {
     display: flex;

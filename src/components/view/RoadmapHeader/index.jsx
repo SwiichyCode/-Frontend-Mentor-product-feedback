@@ -29,7 +29,7 @@ const Header = styled.header`
   border-radius: 10px;
   padding: 27px 40px 27px 32px;
 
-  @media (max-width: 375px) {
+  @media (max-width: 768px) {
     border-radius: 0px;
     padding: 27px 24px 27px 24px;
   }

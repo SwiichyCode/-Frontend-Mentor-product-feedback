@@ -4,7 +4,7 @@ export const Box = styled.div`
   width: 100%;
   border-bottom: 1px solid #e6e8f2;
   mix-blend-mode: normal;
-  margin-bottom: 24px;
+  /* margin-bottom: 24px; */
 `;
 
 export const Tabs = styled.div`

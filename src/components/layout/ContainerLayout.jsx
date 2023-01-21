@@ -13,11 +13,11 @@ const Container = styled.div`
   background: #f7f8fd;
   padding: 92px 40px;
 
-  @media (max-width: 768px) {
+  @media (max-width: 868px) {
     padding: 59px 40px;
   }
 
-  @media (max-width: 375px) {
-    padding: 0;
+  @media (max-width: 868px) {
+    padding: 56px 40px 113px 39px;
   }
 `;

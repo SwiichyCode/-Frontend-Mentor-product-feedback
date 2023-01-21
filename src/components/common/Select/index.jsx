@@ -1,10 +1,10 @@
 import PropTypes from "prop-types";
 import { useToggle } from "../../../hooks/useToggle";
 import { useDetectClickOutside } from "react-detect-click-outside";
-import { Container, CustomSelect } from "./style";
 import iconChevronDown from "../../../assets/shared/icon-arrow-down.svg";
 import iconChevronUp from "../../../assets/shared/icon-arrow-up.svg";
 import iconCheck from "../../../assets/shared/icon-check.svg";
+import * as S from "./styles.js";
 
 export const Select = ({
   label,
@@ -40,10 +40,10 @@ export const Select = ({
   };
 
   return (
-    <Container open={open}>
+    <S.Container open={open}>
       {label && <label className="select-label">{label}</label>}
 
-      <CustomSelect
+      <S.CustomSelect
         className="current-select"
         type="button"
         value={currentOption}
@@ -60,7 +60,7 @@ export const Select = ({
         ) : (
           <img src={iconChevronDown} alt="chevron-icon" />
         )}
-      </CustomSelect>
+      </S.CustomSelect>
 
       {open && (
         <ul ref={ref} role="listbox" tabIndex={-1}>
@@ -81,7 +81,7 @@ export const Select = ({
           })}
         </ul>
       )}
-    </Container>
+    </S.Container>
   );
 };
 
